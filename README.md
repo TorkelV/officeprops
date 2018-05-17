@@ -10,8 +10,17 @@ A JavaScript library used to extract, edit or remove metadata in Microsoft Offic
  * pptx, ppsx, ppsm, pptm, potm, potx
  * ods, odt, odp
 
+## Install:
+Node:
+```
+npm install officeprops
+```
+Or download / include via cdn:
+```
+<script src='https://cdn.jsdelivr.net/npm/officeprops@0.5.0/src/officeprops.js'></script>
+```
 
-#### Usage:
+## Usage:
 
 Relies on [JSZip](https://stuk.github.io/jszip/), which has to be included before officeprops.js.
 
@@ -21,7 +30,7 @@ All functions take a [File](https://developer.mozilla.org/en-US/docs/Web/API/Fil
 
 
 ##### Get metadata:
-```
+```javascript
 OFFICEPROPS.getData(file).then(function(metaData){
     console.log(metaData.editable);
     console.log(metadata.readOnly);
@@ -31,7 +40,7 @@ OFFICEPROPS.getData(file).then(function(metaData){
 ##### Metadata Format:
 Open office property names are translated to MS Office names. e.g. "editing-duration" becomes "totalTime".  
 Returns the actual value, as well as a translated one for each property.
-```
+```javascript
 metaData = {
     editable: {
         totalTime: {
@@ -56,7 +65,7 @@ metaData = {
 
 ##### Edit metadata:
 
-```
+```javascript
 OFFICEPROPS.getData(file).then(function(metaData){
     metaData.editable.creator.value = "New author";
     OFFICEPROPS.editData(file,metaData).then(function(officeFile){
@@ -67,7 +76,7 @@ OFFICEPROPS.getData(file).then(function(metaData){
 
 
 ##### Remove metadata:
-```
+```javascript
 OFFICEPROPS.removeMetaData(file).then(function(officeFile){
     console.log(officeFile) // blob/nodestream with metadata removed.
 }
