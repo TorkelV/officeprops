@@ -27,8 +27,6 @@ Or include via cdn:
 
 ## Usage:
 
-Relies on [JSZip](https://stuk.github.io/jszip/), which has to be included before officeprops.js.
-
 The package adds a global "OFFICEPROPS" variable.
 
 All functions take a [File](https://developer.mozilla.org/en-US/docs/Web/API/File) as parameter, or a [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) in Node.
