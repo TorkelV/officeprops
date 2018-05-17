@@ -8,6 +8,10 @@
     "document",
     "properties"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TorkelV/officeprops"
+  },
   "author": "Torkel Velure",
   "main": "src/officeprops.js",
   "license": "MIT",
