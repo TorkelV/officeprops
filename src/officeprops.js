@@ -105,7 +105,7 @@ var properties = OFFICEPROPS.properties = {
         
 };
   
-  var mimeTypes = {
+  var mimeTypes = OFFICEPROPS.mimeTypes = {
         //https://stackoverflow.com/questions/4212861/what-is-a-correct-mime-type-for-docx-pptx-etc
         "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         "dotx": "application/vnd.openxmlformats-officedocument.wordprocessingml.template",
@@ -290,20 +290,30 @@ function getModifiedMetaDataAsXml(officeFile,metaData){
 async function getBlob(zip,originalFile){
     if(typeof Buffer !== "undefined" && originalFile instanceof Buffer){
         return zip.generateAsync({type:"nodebuffer"}).then(function (blob) { return blob;});
-    }else{
-        return zip.generateAsync({mimeType: getMimeType(originalFile), type:"blob"})
+    }if(typeof Blob !== "undefined" && originalFile instanceof Blob){
+        return zip.generateAsync({mimeType: originalFile.type, type:"blob"})
+        .then(function (blob) {
+            return blob;
+        });
+    }
+    else{
+        return zip.generateAsync({mimeType: getMimeType(getFileExtension(originalFile)), type:"blob"})
         .then(function (blob) {
             return blob;
         });
     }
 }
 
-function getMimeType(officeFile){
-    return mimeTypes[getFileExtension(officeFile)];
+function getMimeType(fileExtension){
+    return fileExtension ? mimeTypes[fileExtension] : false;
 }
 
 function getFileExtension(file){
-    return file.name.split('.').pop();
+    fileParts = file.name.split('.');
+    if(fileParts instanceof Array){
+        return fileParts.pop();
+    }
+    return false;
 }
 
 function serializeXML(xml){
