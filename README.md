@@ -20,7 +20,7 @@ npm install officeprops
 Or include via cdn:
 ```
 <script src='https://cdn.jsdelivr.net/npm/jszip@3.1.5/dist/jszip.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/officeprops@0.5.0/src/officeprops.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/officeprops@0.6.1/src/officeprops.js'></script>
 ```
 
 
