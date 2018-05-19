@@ -20,7 +20,7 @@ npm install officeprops
 Or include via cdn:
 ```
 <script src='https://cdn.jsdelivr.net/npm/jszip@3.1.5/dist/jszip.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/officeprops@0.5.0/src/officeprops.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/officeprops@1.0.0/src/officeprops.js'></script>
 ```
 
 
@@ -34,8 +34,8 @@ All functions take a [File](https://developer.mozilla.org/en-US/docs/Web/API/Fil
 
 ##### Get metadata:
 ```javascript
-OFFICEPROPS.getData(file).then(function(metaData){
-    console.log(metaData.editable);
+OFFICEPROPS.getData(file).then(function(metadata){
+    console.log(metadata.editable);
     console.log(metadata.readOnly);
 }
 ```
@@ -44,7 +44,7 @@ OFFICEPROPS.getData(file).then(function(metaData){
 Open office property names are translated to MS Office names. e.g. "editing-duration" becomes "totalTime".  
 Returns the actual value, as well as a translated one for each property.
 ```javascript
-metaData = {
+metadata = {
     editable: {
         totalTime: {
             value: "PT3M43S", //actual value
@@ -69,9 +69,9 @@ metaData = {
 ##### Edit metadata:
 
 ```javascript
-OFFICEPROPS.getData(file).then(function(metaData){
-    metaData.editable.creator.value = "New author";
-    OFFICEPROPS.editData(file,metaData).then(function(officeFile){
+OFFICEPROPS.getData(file).then(function(metadata){
+    metadata.editable.creator.value = "New author";
+    OFFICEPROPS.editData(file,metadata).then(function(officeFile){
         console.log(officeFile) // blob/nodestream containing edited file.
     }
 }
@@ -80,7 +80,7 @@ OFFICEPROPS.getData(file).then(function(metaData){
 
 ##### Remove metadata:
 ```javascript
-OFFICEPROPS.removeMetaData(file).then(function(officeFile){
+OFFICEPROPS.removeData(file).then(function(officeFile){
     console.log(officeFile) // blob/nodestream with metadata removed.
 }
 ```
