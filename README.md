@@ -49,12 +49,12 @@ metadata = {
         totalTime: {
             value: "PT3M43S", //actual value
             tvalue: "3 minutes", //translated value
-            xmlProperty: "office:meta/meta:editing-duration"
+            xmlPath: "office:meta/meta:editing-duration"
         },
         creator: {
             value: "Torkel Velure",
             tvalue: "Torkel Velure",
-            xmlProperty: "office:meta/meta:initial-creator"
+            xmlPath: "office:meta/meta:initial-creator"
         }
         //...see OFFICEPROPS.properties for full list of properties
     },
