@@ -231,7 +231,7 @@
 
     var readonly = {};
     headingPairsAndParts.forEach(e => {
-      readonly[e.name] = { value: e.value };
+      readonly[e.name] = { value: e.value, tvalue: e.value };
     });
 
     return { editable: editable, readOnly: readonly };
