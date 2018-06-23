@@ -19,7 +19,7 @@
     root.OFFICEPROPS = OFFICEPROPS;
   }
 
-  var typeConverters = {
+  var typeConverters = (OFFICEPROPS.typeConverters = {
     str: e => e,
     int: e => e,
     float: e => e,
@@ -47,7 +47,7 @@
       e == 1 ? e + " minute" : e + " minutes"
     ),
     intMinutes: e => (e == 1 ? e + " minute" : e + " minutes")
-  };
+  });
 
   //https://msdn.microsoft.com/en-us/library/documentformat.openxml.extendedproperties(v=office.14).aspx
   var properties = (OFFICEPROPS.properties = {
@@ -131,7 +131,10 @@
     potm: "application/vnd.ms-powerpoint.template.macroEnabled.12",
     odt: "application/vnd.oasis.opendocument.text",
     odp: "application/vnd.oasis.opendocument.presentation",
-    ods: "application/vnd.oasis.opendocument.spreadsheet"
+    ods: "application/vnd.oasis.opendocument.spreadsheet",
+    ots: "application/vnd.oasis.opendocument.spreadsheet-template",
+    otp: "application/vnd.oasis.opendocument.presentation-template",
+    ott: "application/vnd.oasis.opendocument.text-template"
   });
 
   async function getMetadataAsXML(zip) {
