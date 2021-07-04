@@ -37,7 +37,7 @@ All functions take a [File](https://developer.mozilla.org/en-US/docs/Web/API/Fil
 OFFICEPROPS.getData(file).then(function(metadata){
     console.log(metadata.editable);
     console.log(metadata.readOnly);
-}
+})
 ```
 
 ##### Metadata Format:
@@ -60,7 +60,7 @@ metadata = {
     },
     readOnly: {
         slideTitles: ["Slide1, slide2, slide3"],
-        titles: ["title1", "title2"]
+        titles: ["title1", "title2"],
         worksheets: ["sheet1"]
     }
 }
@@ -73,8 +73,8 @@ OFFICEPROPS.getData(file).then(function(metadata){
     metadata.editable.creator.value = "New author";
     OFFICEPROPS.editData(file,metadata).then(function(officeFile){
         console.log(officeFile) // blob/nodestream containing edited file.
-    }
-}
+    })
+})
 ```
 
 
@@ -82,7 +82,7 @@ OFFICEPROPS.getData(file).then(function(metadata){
 ```javascript
 OFFICEPROPS.removeData(file).then(function(officeFile){
     console.log(officeFile) // blob/nodestream with metadata removed.
-}
+})
 ```
 
 For more, see [Examples](https://github.com/TorkelV/officeprops/blob/master/src/example/index.html) or [Tests](https://github.com/TorkelV/officeprops/blob/master/src/test/officeprops.test.js)
