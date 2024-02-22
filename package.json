@@ -16,7 +16,7 @@
   "main": "src/officeprops.js",
   "license": "MIT",
   "dependencies": {
-    "xmldom": "0.1.27",
+    "xmldom": "0.6.0",
     "jszip": "3.1.5"
   },
   "ignore": [
